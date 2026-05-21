@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✨ Gerador de Letras Diferentes & Elegantes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-bg"></div>
+    <div class="header-content">
+      <div class="logo-area">
+        <span class="logo-icon">✨</span>
+        <div>
+          <h1 class="site-title">Gerador de Letras</h1>
+          <p class="site-subtitle">Fontes bonitas &amp; elegantes para copiar</p>
+        </div>
+      </div>
+      <div class="header-badges">
+        <span class="badge">📱 Instagram</span>
+        <span class="badge">𝕏 Twitter</span>
+        <span class="badge">💬 WhatsApp</span>
+        <span class="badge">🎮 Free Fire</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main-container">
+
+    <!-- INPUT SECTION -->
+    <section class="input-section" id="input-section">
+      <div class="input-card">
+        <label class="input-label" for="userInput">
+          <i class="fa-solid fa-keyboard"></i> Digite seu texto abaixo
+        </label>
+        <div class="input-wrapper">
+          <textarea
+            id="userInput"
+            class="main-input"
+            placeholder="Ex: Seu Nome, Nick, Frase..."
+            rows="3"
+            maxlength="200"
+          ></textarea>
+          <span class="char-count" id="charCount">0/200</span>
+        </div>
+        <div class="input-actions">
+          <button class="btn btn-primary" id="generateBtn">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Gerar Fontes
+          </button>
+          <button class="btn btn-secondary" id="clearBtn">
+            <i class="fa-solid fa-trash"></i> Limpar
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTERS -->
+    <section class="filters-section" id="filters-section">
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">🎨 Todas</button>
+        <button class="filter-btn" data-filter="serif">📖 Serif</button>
+        <button class="filter-btn" data-filter="bold">💪 Negrito</button>
+        <button class="filter-btn" data-filter="cursive">✍️ Cursiva</button>
+        <button class="filter-btn" data-filter="decorative">💎 Decorativas</button>
+        <button class="filter-btn" data-filter="symbol">🔡 Símbolos</button>
+        <button class="filter-btn" data-filter="bubble">🫧 Bolhas</button>
+        <button class="filter-btn" data-filter="strikethrough">🚫 Rasurado</button>
+      </div>
+    </section>
+
+    <!-- RESULTS SECTION -->
+    <section class="results-section" id="resultsSection">
+      <div class="results-header" id="resultsHeader" style="display:none;">
+        <h2 class="results-title">
+          <i class="fa-solid fa-star"></i> Suas Fontes Geradas
+        </h2>
+        <span class="results-count" id="resultsCount"></span>
+      </div>
+      <div class="fonts-grid" id="fontsGrid">
+        <!-- Placeholder inicial -->
+        <div class="placeholder-card" id="placeholderCard">
+          <div class="placeholder-emoji">✨</div>
+          <p class="placeholder-text">Digite seu texto acima e clique em <strong>Gerar Fontes</strong></p>
+          <p class="placeholder-hint">Mais de 50 estilos diferentes para você copiar!</p>
+          <div class="placeholder-preview">
+            <span>𝕊𝕖𝕦 𝕟𝕠𝕞𝕖</span>
+            <span>𝒮𝑒𝓊 𝓃ℴ𝓂𝑒</span>
+            <span>𝐒𝐞𝐮 𝐧𝐨𝐦𝐞</span>
+            <span>🅢🅔🅤 🅝🅞🅜🅔</span>
+            <span>Ｓｅｕ ｎｏｍｅ</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EMOJIS & SYMBOLS SECTION -->
+    <section class="symbols-section" id="symbols-section">
+      <div class="symbols-card">
+        <h2 class="symbols-title">
+          <i class="fa-solid fa-shapes"></i> Emojis &amp; Símbolos Especiais
+        </h2>
+        <p class="symbols-subtitle">Clique para copiar · Adicione ao seu nick ou bio!</p>
+
+        <div class="symbol-categories" id="symbolCategories"></div>
+      </div>
+    </section>
+
+    <!-- NICK BUILDER -->
+    <section class="builder-section" id="builder-section">
+      <div class="builder-card">
+        <h2 class="builder-title">
+          <i class="fa-solid fa-hammer"></i> Montador de Nick
+        </h2>
+        <p class="builder-subtitle">Monte seu nick personalizado combinando texto, fontes e símbolos</p>
+        <div class="builder-area" id="builderArea" contenteditable="true" spellcheck="false">Seu Nick Aqui</div>
+        <div class="builder-actions">
+          <button class="btn btn-primary btn-sm" id="copyNickBtn">
+            <i class="fa-solid fa-copy"></i> Copiar Nick
+          </button>
+          <button class="btn btn-ghost btn-sm" id="clearNickBtn">
+            <i class="fa-solid fa-eraser"></i> Limpar
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMsg">Copiado!</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>✨ Gerador de Letras Elegantes &nbsp;·&nbsp; Feito com 💜 para Instagram, WhatsApp &amp; Free Fire</p>
+  </footer>
+
+  <script src="js/fonts.js"></script>
+  <script src="js/symbols.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
